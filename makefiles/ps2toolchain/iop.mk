@@ -1,7 +1,7 @@
 TARGET_PS2TOOLCHAIN_IOP=iop
 
-IOP_BINTUILS_TARGETS += "mipsel-ps2-irx"
-IOP_BINTUILS_TARGETS += "mipsel-ps2-elf"
+IOP_TARGETS += "mipsel-ps2-irx"
+IOP_TARGETS += "mipsel-ps2-elf"
 
 IOP_DEPS += .depends
 IOP_DEPS += .ps2toolchain-$(TARGET_PS2TOOLCHAIN_IOP)-binutils
@@ -9,7 +9,7 @@ IOP_DEPS += .ps2toolchain-$(TARGET_PS2TOOLCHAIN_IOP)-gcc-stage1
 
 .ps2toolchain-$(TARGET_PS2TOOLCHAIN_IOP)-binutils:
 	@$(call stage,"$(PS2TOOLCHAIN_FOLDER)/$(TARGET_PS2TOOLCHAIN_IOP)/binutils")
-	@for TARGET in $(IOP_BINTUILS_TARGETS); do \
+	@for TARGET in $(IOP_TARGETS); do \
 		cd "$(BUILD_FOLDER)/$(PS2TOOLCHAIN_FOLDER)/$(TARGET_PS2TOOLCHAIN_IOP)/binutils"; \
 		rm -rf "build-$$TARGET"; \
 		mkdir "build-$$TARGET"; \
@@ -28,7 +28,7 @@ IOP_DEPS += .ps2toolchain-$(TARGET_PS2TOOLCHAIN_IOP)-gcc-stage1
 
 .ps2toolchain-$(TARGET_PS2TOOLCHAIN_IOP)-gcc-stage1:
 	@$(call stage,"$(PS2TOOLCHAIN_FOLDER)/$(TARGET_PS2TOOLCHAIN_IOP)/gcc-stage1")
-	@for TARGET in $(IOP_BINTUILS_TARGETS); do \
+	@for TARGET in $(IOP_TARGETS); do \
 		cd "$(BUILD_FOLDER)/$(PS2TOOLCHAIN_FOLDER)/$(TARGET_PS2TOOLCHAIN_IOP)/gcc-stage1"; \
 		rm -rf "build-$$TARGET-stage1"; \
 		mkdir "build-$$TARGET-stage1"; \

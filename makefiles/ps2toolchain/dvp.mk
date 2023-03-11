@@ -1,13 +1,13 @@
 TARGET_PS2TOOLCHAIN_DVP=dvp
 
-DVP_BINTUILS_TARGETS += "dvp"
+DVP_TARGETS += "dvp"
 
 DVP_DEPS += .depends
 DVP_DEPS += .ps2toolchain-$(TARGET_PS2TOOLCHAIN_DVP)-binutils
 
 .ps2toolchain-$(TARGET_PS2TOOLCHAIN_DVP)-binutils:
 	@$(call stage,"$(PS2TOOLCHAIN_FOLDER)/$(TARGET_PS2TOOLCHAIN_DVP)/binutils")
-	@for TARGET in $(IOP_BINTUILS_TARGETS); do \
+	@for TARGET in $(DVP_TARGETS); do \
 		cd "$(BUILD_FOLDER)/$(PS2TOOLCHAIN_FOLDER)/$(TARGET_PS2TOOLCHAIN_DVP)/binutils" && \
 		rm -rf "build-$$TARGET" && \
 		mkdir "build-$$TARGET" && \
