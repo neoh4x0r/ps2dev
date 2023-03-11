@@ -25,7 +25,4 @@ DVP_DEPS += .ps2toolchain-$(TARGET_PS2TOOLCHAIN_DVP)-binutils
 
 ps2toolchain-$(TARGET_PS2TOOLCHAIN_DVP): $(DVP_DEPS)
 
-
-am_build_targets += ps2toolchain-$(TARGET_PS2TOOLCHAIN_DVP)
-
-PS2TOOLCHAIN_TARGETS += ps2toolchain-$(TARGET_PS2TOOLCHAIN_DVP)
+am_ps2toolchain_targets += ps2toolchain-$(TARGET_PS2TOOLCHAIN_DVP)

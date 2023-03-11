@@ -66,7 +66,4 @@ IOP_DEPS += .ps2toolchain-$(TARGET_PS2TOOLCHAIN_IOP)-gcc-stage1
 
 ps2toolchain-$(TARGET_PS2TOOLCHAIN_IOP): $(IOP_DEPS)
 
-
-am_build_targets += ps2toolchain-$(TARGET_PS2TOOLCHAIN_IOP)
-
-PS2TOOLCHAIN_TARGETS += ps2toolchain-$(TARGET_PS2TOOLCHAIN_IOP)
+am_ps2toolchain_targets += ps2toolchain-$(TARGET_PS2TOOLCHAIN_IOP)

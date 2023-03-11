@@ -22,4 +22,6 @@ include makefiles/ps2toolchain/dvp.mk
 include makefiles/ps2toolchain/iop.mk
 include makefiles/ps2toolchain/ee.mk
 
-ps2toolchain: $(PS2TOOLCHAIN_TARGETS)
+am_build_targets += $(am_ps2toolchain_targets)
+
+ps2toolchain: $(am_ps2toolchain_targets)
