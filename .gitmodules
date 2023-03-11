@@ -1,0 +1,39 @@
+[submodule "externals/ps2toolchain/dvp/binutils"]
+	path = externals/ps2toolchain/dvp/binutils
+	url = https://github.com/ps2dev/binutils-gdb.git
+[submodule "externals/ps2toolchain/iop/binutils"]
+	path = externals/ps2toolchain/iop/binutils
+	url = https://github.com/ps2dev/binutils-gdb.git
+[submodule "externals/ps2toolchain/iop/gcc-stage1"]
+	path = externals/ps2toolchain/iop/gcc-stage1
+	url = https://github.com/ps2dev/gcc.git
+[submodule "externals/ps2toolchain/ee/binutils"]
+	path = externals/ps2toolchain/ee/binutils
+	url = https://github.com/ps2dev/binutils-gdb.git
+[submodule "externals/ps2toolchain/ee/gcc-stage1"]
+	path = externals/ps2toolchain/ee/gcc-stage1
+	url = https://github.com/ps2dev/gcc.git
+[submodule "externals/ps2toolchain/ee/newlib"]
+	path = externals/ps2toolchain/ee/newlib
+	url = https://github.com/ps2dev/newlib.git
+[submodule "externals/ps2toolchain/ee/newlib-nano"]
+	path = externals/ps2toolchain/ee/newlib-nano
+	url = https://github.com/ps2dev/newlib.git
+[submodule "externals/ps2toolchain/ee/pthread"]
+	path = externals/ps2toolchain/ee/pthread
+	url = https://github.com/ps2dev/pthread-embedded.git
+[submodule "externals/ps2toolchain/ee/gcc-stage2"]
+	path = externals/ps2toolchain/ee/gcc-stage2
+	url = https://github.com/ps2dev/gcc.git
+[submodule "externals/ps2sdk"]
+	path = externals/ps2sdk
+	url = https://github.com/ps2dev/ps2sdk
+[submodule "externals/ps2sdk-ports"]
+	path = externals/ps2sdk-ports
+	url = https://github.com/ps2dev/ps2sdk-ports
+[submodule "externals/ps2-packer"]
+	path = externals/ps2-packer
+	url = https://github.com/ps2dev/ps2-packer
+[submodule "externals/ps2client"]
+	path = externals/ps2client
+	url = https://github.com/ps2dev/ps2client
