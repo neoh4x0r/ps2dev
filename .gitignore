@@ -68,3 +68,7 @@ build/
 !.github
 !.editorconfig
 !.clang-format
+
+# Files related to the geany text editor
+*.tags
+*.gnbs.conf
