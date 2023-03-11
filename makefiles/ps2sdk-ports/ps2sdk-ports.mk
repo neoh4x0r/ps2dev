@@ -1,0 +1,5 @@
+TARGET_PS2SDK_PORTS=ps2sdk-ports
+$(TARGET_PS2SDK_PORTS):
+	@echo "$@ not implemented"
+
+AM_BUILD_TARGETS += $(TARGET_PS2SDK_PORTS)
