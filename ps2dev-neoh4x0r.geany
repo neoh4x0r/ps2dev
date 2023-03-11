@@ -18,7 +18,7 @@ detect_indent_width=false
 indent_mode=2
 
 [project]
-name=ps2dev-neoh4x0r
+name=ps2dev
 base_path=./
 description=PS2DEV is intended to bootstrap the building of the PS2 Development environment.\n\n
 file_patterns=
@@ -26,10 +26,6 @@ file_patterns=
 [long line marker]
 long_line_behaviour=1
 long_line_column=80
-
-[files]
-current_page=0
-FILE_NAME_0=629;None;0;EUTF-8;0;1;1;%2Fhome%2Fwilliam%2Fgit_stored_files%2Fps2dev-neoh4x0r%2F.gitignore;0;4
 
 [prjorg]
 source_patterns=*.c;*.C;*.cpp;*.cxx;*.c++;*.cc;*.m;
