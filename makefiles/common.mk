@@ -2,3 +2,6 @@
 # NUM_JOBS: number of parallel make jobs
 # -- set this to 1 for debugging
 NUM_JOBS=$(shell nproc)
+
+# get substring of os version (grad first 10 characters)
+OSVER=$(shell uname | cut -c 1-10)

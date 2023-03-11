@@ -2,4 +2,4 @@ TARGET_PS2CLIENT=ps2client
 $(TARGET_PS2CLIENT):
 	@echo "$@ not implemented"
 
-AM_BUILD_TARGETS += $(TARGET_PS2CLIENT)
+am_build_targets += $(TARGET_PS2CLIENT)

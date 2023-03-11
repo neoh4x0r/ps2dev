@@ -2,4 +2,4 @@ TARGET_PS2PACKER=ps2-packer
 $(TARGET_PS2PACKER):
 	@echo "$@ not implemented"
 
-AM_BUILD_TARGETS += $(TARGET_PS2PACKER)
+am_build_targets += $(TARGET_PS2PACKER)

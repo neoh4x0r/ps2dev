@@ -6,3 +6,5 @@ BUILD_FOLDER=$(ROOT_DIR)/build
 
 # EXTERNALS_FOLDER: path to the externals directory
 EXTERNALS_FOLDER=$(ROOT_DIR)/externals
+
+DEPEND_SCRIPT_PATH=$(ROOT_DIR)/depends
