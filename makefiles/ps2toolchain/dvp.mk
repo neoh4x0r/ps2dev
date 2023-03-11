@@ -1,23 +1,31 @@
 TARGET_PS2TOOLCHAIN_DVP=dvp
 
-.ps2toolchain-$(TARGET_PS2TOOLCHAIN_DVP)-binutils: .depends
+DVP_BINTUILS_TARGETS += "dvp"
+
+DVP_DEPS += .depends
+DVP_DEPS += .ps2toolchain-$(TARGET_PS2TOOLCHAIN_DVP)-binutils
+
+.ps2toolchain-$(TARGET_PS2TOOLCHAIN_DVP)-binutils:
 	@$(call stage,"$(PS2TOOLCHAIN_FOLDER)/$(TARGET_PS2TOOLCHAIN_DVP)/binutils")
-	@cd "$(BUILD_FOLDER)/$(PS2TOOLCHAIN_FOLDER)/$(TARGET_PS2TOOLCHAIN_DVP)/binutils" && \
-		rm -rf "build-$(TARGET_PS2TOOLCHAIN_DVP)" && \
-		mkdir "build-$(TARGET_PS2TOOLCHAIN_DVP)" && \
-		cd "build-$(TARGET_PS2TOOLCHAIN_DVP)" && \
+	@for TARGET in $(IOP_BINTUILS_TARGETS); do \
+		cd "$(BUILD_FOLDER)/$(PS2TOOLCHAIN_FOLDER)/$(TARGET_PS2TOOLCHAIN_DVP)/binutils" && \
+		rm -rf "build-$$TARGET" && \
+		mkdir "build-$$TARGET" && \
+		cd "build-$$TARGET" && \
 		CFLAGS="$(am_dvp_binutils_cflags)" ../configure \
 			--quiet \
 			--prefix="$(PS2DEV)/$(TARGET_PS2TOOLCHAIN_DVP)" \
-			--target="$(TARGET_PS2TOOLCHAIN_DVP)" \
+			--target="$$TARGET" \
 			--disable-nls \
 			--disable-build-warnings \
 			$(TARG_XTRA_OPTS) && \
-		$(MAKE) --quiet -j$(NUM_JOBS) CFLAGS="$(CFLAGS) -D_FORTIFY_SOURCE=0 -O2 -Wno-implicit-function-declaration" LDFLAGS="$(LDFLAGS) -s" && \
-		$(MAKE) --quiet -j$(NUM_JOBS) install
-		$(MAKE) --quiet -j$(NUM_JOBS) clean
+		$(MAKE) --quiet -j $(NUM_JOBS) CFLAGS="$(CFLAGS) -D_FORTIFY_SOURCE=0 -O2 -Wno-implicit-function-declaration" LDFLAGS="$(LDFLAGS) -s"; \
+		$(MAKE) --quiet -j $(NUM_JOBS) install; \
+	done
 
-ps2toolchain-$(TARGET_PS2TOOLCHAIN_DVP): .ps2toolchain-$(TARGET_PS2TOOLCHAIN_DVP)-binutils
+ps2toolchain-$(TARGET_PS2TOOLCHAIN_DVP): $(DVP_DEPS)
 
 
 am_build_targets += ps2toolchain-$(TARGET_PS2TOOLCHAIN_DVP)
+
+PS2TOOLCHAIN_TARGETS += ps2toolchain-$(TARGET_PS2TOOLCHAIN_DVP)
