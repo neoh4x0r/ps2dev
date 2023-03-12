@@ -21,9 +21,9 @@ IOP_DEPS += .ps2toolchain-$(TARGET_PS2TOOLCHAIN_IOP)-gcc-stage1
 			--disable-separate-code \
 			--disable-sim \
 			--disable-nls \
-			$(TARG_XTRA_OPTS); \
-		$(MAKE) --quiet -j $(NUM_JOBS); \
-		$(MAKE) --quiet -j $(NUM_JOBS) install-strip; \
+			$(TARG_XTRA_OPTS) 2>&1 | tee -a $(LOGFILE); \
+		$(MAKE) --quiet -j $(NUM_JOBS) 2>&1 | tee -a $(LOGFILE); \
+		$(MAKE) --quiet -j $(NUM_JOBS) install-strip 2>&1 | tee -a $(LOGFILE); \
 	done
 
 .ps2toolchain-$(TARGET_PS2TOOLCHAIN_IOP)-gcc-stage1:
@@ -59,9 +59,9 @@ IOP_DEPS += .ps2toolchain-$(TARGET_PS2TOOLCHAIN_IOP)-gcc-stage1
 			--disable-target-zlib \
 			--disable-nls \
 			--disable-tls \
-			$(TARG_XTRA_OPTS); \
-		$(MAKE) --quiet -j $(NUM_JOBS) all; \
-		$(MAKE) --quiet -j $(NUM_JOBS) install-strip; \
+			$(TARG_XTRA_OPTS) 2>&1 | tee -a $(LOGFILE); \
+		$(MAKE) --quiet -j $(NUM_JOBS) al 2>&1 | tee -a $(LOGFILE)l; \
+		$(MAKE) --quiet -j $(NUM_JOBS) install-strip 2>&1 | tee -a $(LOGFILE); \
 	done
 
 ps2toolchain-$(TARGET_PS2TOOLCHAIN_IOP): $(IOP_DEPS)

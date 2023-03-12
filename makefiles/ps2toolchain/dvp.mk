@@ -18,9 +18,9 @@ DVP_DEPS += .ps2toolchain-$(TARGET_PS2TOOLCHAIN_DVP)-binutils
 			--target="$$TARGET" \
 			--disable-nls \
 			--disable-build-warnings \
-			$(TARG_XTRA_OPTS); \
-		$(MAKE) --quiet -j $(NUM_JOBS) CFLAGS="$(CFLAGS) -D_FORTIFY_SOURCE=0 -O2 -Wno-implicit-function-declaration" LDFLAGS="$(LDFLAGS) -s"; \
-		$(MAKE) --quiet -j $(NUM_JOBS) install; \
+			$(TARG_XTRA_OPTS) 2>&1 | tee -a $(LOGFILE); \
+		$(MAKE) --quiet -j $(NUM_JOBS) CFLAGS="$(CFLAGS) -D_FORTIFY_SOURCE=0 -O2 -Wno-implicit-function-declaration" LDFLAGS="$(LDFLAGS) -s"  2>&1 | tee -a $(LOGFILE) ; \
+		$(MAKE) --quiet -j $(NUM_JOBS) install 2>&1 | tee -a $(LOGFILE); \
 	done
 
 ps2toolchain-$(TARGET_PS2TOOLCHAIN_DVP): $(DVP_DEPS)
