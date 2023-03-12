@@ -4,4 +4,4 @@ clean:
 	@rm -rf "$(BUILD_FOLDER)"
 
 dist-clean:
-	@echo "$@ not implemented"
+	@$(call ResetCheckout)

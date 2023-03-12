@@ -7,3 +7,5 @@ NUM_JOBS=$(shell nproc)
 OSVER=$(shell uname | cut -c 1-10)
 
 LOGFILE=$(BUILD_FOLDER)/build.log
+
+GIT_BRANCH=$(shell $(GIT) rev-parse --abbrev-ref HEAD)
