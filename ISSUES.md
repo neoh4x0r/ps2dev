@@ -8,7 +8,7 @@
 /bin/bash: line 1: mips64r5900el-ps2-elf-cc: command not found
 ```
 
-I don't know if **mips64r5900el-ps2-elf-cc** isn't be created by binutils | gcc  
+I don't know if **mips64r5900el-ps2-elf-cc** isn't being created by binutils (or gcc),
 or if newlib should should be using **mips64r5900el-ps2-elf-gcc** instead.
 
 ===
