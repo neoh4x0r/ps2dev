@@ -143,7 +143,7 @@ EE_DEPS += .ps2toolchain-$(TARGET_PS2TOOLCHAIN_EE)-gcc-stage2
 		../configure \
 			--quiet \
 			--prefix="$(PS2DEV)/$(TARGET_PS2TOOLCHAIN_EE)" \
-			--target="$@TARGET" \
+			--target="$$TARGET" \
 			--enable-languages="c,c++" \
 			--with-float=hard \
 			--with-sysroot="$(PS2DEV)/$(TARGET_PS2TOOLCHAIN_EE)/$$TARGET" \
