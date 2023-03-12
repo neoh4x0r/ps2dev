@@ -8,10 +8,10 @@ if test ! "$PS2DEV"; then { echo "ERROR: Set \$PS2DEV before continuing."; exit 
 if test ! "$PS2SDK"; then { echo "ERROR: Set \$PS2SDK before continuing."; exit 1; } fi
 
 ## Check for the $PS2DEV directory.
-test -e "$PS2DEV" 1> /dev/null || mkdir -p "$PS2DEV" 1> /dev/null || { echo "ERROR: Create $PS2DEV before continuing."; exit 1; }
+test -d "$PS2DEV" 1> /dev/null || mkdir -p "$PS2DEV" 1> /dev/null || { echo "ERROR: Create $PS2DEV before continuing."; exit 1; }
 
 ## Check for the $PS2SDK directory.
-test -e  "$PS2SDK" 1> /dev/null || mkdir -p "$PS2SDK" 1> /dev/null || { echo "ERROR: Create $PS2SDK before continuing."; exit 1; }
+test -d  "$PS2SDK" 1> /dev/null || mkdir -p "$PS2SDK" 1> /dev/null || { echo "ERROR: Create $PS2SDK before continuing."; exit 1; }
 
 ## Check for $PS2DEV write permission.
 touch "$PS2DEV/test.tmp" 1> /dev/null || { echo "ERROR: Grant write permissions for $PS2DEV before continuing."; exit 1; }
