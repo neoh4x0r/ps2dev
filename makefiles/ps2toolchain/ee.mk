@@ -110,9 +110,9 @@ EE_DEPS += .ps2toolchain-$(TARGET_PS2TOOLCHAIN_EE)-gcc-stage2
 			$(TARG_XTRA_OPTS) 2>&1 | tee -a $(LOGFILE); \
 		$(MAKE) --quiet -j "$(NUM_JOBS)" all 2>&1 | tee -a $(LOGFILE); \
 		$(MAKE) --quiet -j "$(NUM_JOBS)" install-strip 2>&1 | tee -a $(LOGFILE); \
-		mv "./build-tmp/$$TARGET/lib/libc.a" "$(PS2DEV)/$(TARGET_PS2TOOLCHAIN_EE)/$$TARGET/lib/libc_nano.a" 2>&1 | tee -a $(LOGFILE); \
-		mv "./build-tmp/$$TARGET/lib/libg.a" "$PS2DEV/$(TARGET_PS2TOOLCHAIN_EE)/$$TARGET/lib/libg_nano.a" 2>&1 | tee -a $(LOGFILE); \
-		mv "./build-tmp/$$TARGET/lib/libm.a" "$PS2DEV/$(TARGET_PS2TOOLCHAIN_EE)/$$TARGET/lib/libm_nano.a" 2>&1 | tee -a $(LOGFILE); \
+		mv "./build-tmp/$$TARGET/lib/libc.a" "$(PS2DEV)/$(TARGET_PS2TOOLCHAIN_EE)/$$TARGET/lib/libc_nano.a"; \
+		mv "./build-tmp/$$TARGET/lib/libg.a" "$PS2DEV/$(TARGET_PS2TOOLCHAIN_EE)/$$TARGET/lib/libg_nano.a"; \
+		mv "./build-tmp/$$TARGET/lib/libm.a" "$PS2DEV/$(TARGET_PS2TOOLCHAIN_EE)/$$TARGET/lib/libm_nano.a"; \
 	done
 #####################
 
