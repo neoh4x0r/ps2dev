@@ -6,7 +6,7 @@ auto_continue_multiline=true
 [file_prefs]
 final_new_line=true
 ensure_convert_new_lines=true
-strip_trailing_spaces=true
+strip_trailing_spaces=false
 replace_tabs=false
 
 [indentation]
