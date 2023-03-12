@@ -6,6 +6,6 @@ define stage
 endef
 
 define ResetCheckout
-	@echo $(GIT) reset --hard origin/$(GIT_BRANCH)
-	@echo $(GIT) clean -fd
+	@$(GIT) reset --hard origin/$(GIT_BRANCH)
+	@$(GIT) clean -fd
 endef
