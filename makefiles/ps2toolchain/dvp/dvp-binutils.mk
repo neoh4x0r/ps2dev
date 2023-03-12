@@ -1,14 +1,7 @@
-TARGET_PS2TOOLCHAIN_DVP=dvp
-
-DVP_TARGETS += "dvp"
-
-DVP_DEPS += .depends
-DVP_DEPS += .ps2toolchain-$(TARGET_PS2TOOLCHAIN_DVP)-binutils
-
-.ps2toolchain-$(TARGET_PS2TOOLCHAIN_DVP)-binutils:
-	@$(call stage,"$(PS2TOOLCHAIN_FOLDER)/$(TARGET_PS2TOOLCHAIN_DVP)/binutils")
-	@for TARGET in $(DVP_TARGETS); do \
-		cd "$(BUILD_FOLDER)/$(PS2TOOLCHAIN_FOLDER)/$(TARGET_PS2TOOLCHAIN_DVP)/binutils"; \
+$(DVP_MAKE_TARGET_BINUTILS):
+	@$(call stage,"$(DVP_DIR_TARGET_BINUTILS)")
+	@for TARGET in $(DVP_COMPILE_TARGETS); do \
+		cd "$(BUILD_FOLDER)/$(DVP_DIR_TARGET_BINUTILS)"; \
 		rm -rf "build-$$TARGET"; \
 		mkdir "build-$$TARGET"; \
 		cd "build-$$TARGET"; \
@@ -22,7 +15,4 @@ DVP_DEPS += .ps2toolchain-$(TARGET_PS2TOOLCHAIN_DVP)-binutils
 		$(MAKE) --quiet -j $(NUM_JOBS) CFLAGS="$(CFLAGS) -D_FORTIFY_SOURCE=0 -O2 -Wno-implicit-function-declaration" LDFLAGS="$(LDFLAGS) -s"  2>&1 | tee -a $(LOGFILE) ; \
 		$(MAKE) --quiet -j $(NUM_JOBS) install 2>&1 | tee -a $(LOGFILE); \
 	done
-
-ps2toolchain-$(TARGET_PS2TOOLCHAIN_DVP): $(DVP_DEPS)
-
-am_ps2toolchain_targets += ps2toolchain-$(TARGET_PS2TOOLCHAIN_DVP)
+	

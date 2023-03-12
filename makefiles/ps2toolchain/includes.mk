@@ -1,6 +1,16 @@
-PS2TOOLCHAIN_FOLDER=ps2toolchain
+PS2TOOLCHAIN=ps2toolchain
 
+# PS2TOOLCHAIN_HIDE_COMPILER_TARGETS: set to '.' to hide the compiler targets
+# For example, to hide ps2toolchain-dvp
+PS2TOOLCHAIN_HIDE_COMPILER_TARGETS =
+
+# PS2TOOLCHAIN_HIDE_SUBCOMPILER_TARGETS: set to '.' to hide sub-compiler targets
+# For example, to hide ps2toolchain-dvp-binutils
+PS2TOOLCHAIN_HIDE_SUBCOMPILER_TARGETS =
+
+# note: am_dvp_binutils_cflags is only used when building dvp-binutils
 export am_dvp_binutils_cflags="$(CFLAGS)"
+
 ifeq ($(OSVER),MINGW64_NT)
 	export lt_cv_sys_max_cmd_len=8000
 	am_CC=x86_64-w64-mingw32-gcc
@@ -17,11 +27,10 @@ ifeq ($(OSVER),MINGW32_NT)
 	export CC=$(am_CC)
 endif
 
+include makefiles/$(PS2TOOLCHAIN)/dvp/includes.mk
+include makefiles/$(PS2TOOLCHAIN)/iop/includes.mk
+include makefiles/$(PS2TOOLCHAIN)/ee/includes.mk
 
-include makefiles/ps2toolchain/dvp.mk
-include makefiles/ps2toolchain/iop.mk
-include makefiles/ps2toolchain/ee.mk
+am_build_targets += $(am_$(PS2TOOLCHAIN)_targets)
 
-am_build_targets += $(am_ps2toolchain_targets)
-
-ps2toolchain: $(am_ps2toolchain_targets)
+$(PS2TOOLCHAIN): $(am_$(PS2TOOLCHAIN)_targets)
