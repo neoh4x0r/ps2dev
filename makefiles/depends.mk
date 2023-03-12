@@ -8,5 +8,5 @@ DEPEND_SCRIPTS += "check-wget.sh"
 # execute depend scripts
 .depends:
 	@for script in $(DEPEND_SCRIPTS); do \
-		$(DEPEND_SCRIPT_PATH)/$$script 2>&1 | tee -a $(LOGFILE) || exit 1 ; \
+		$(DEPEND_SCRIPT_PATH)/$$script || exit 1 ; \
 	done
