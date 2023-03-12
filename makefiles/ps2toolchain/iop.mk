@@ -37,7 +37,7 @@ IOP_DEPS += .ps2toolchain-$(TARGET_PS2TOOLCHAIN_IOP)-gcc-stage1
 			--quiet \
 			--prefix="$(PS2DEV)/$(TARGET_PS2TOOLCHAIN_IOP)" \
 			--target="$$TARGET" \
-			--enable-languages="c" \
+			--enable-stage1-languages="c" \
 			--with-float=soft \
 			--with-headers=no \
 			--without-newlib \
