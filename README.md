@@ -7,7 +7,11 @@ This is the main PS2 Repo for building the whole `PS2 Development` environment i
 This program will automatically build and install the whole compiler and other tools used in the creation of homebrew software for the Sony PlayStation® 2 videogame system.  
 
 &nbsp;  
-**Note:** previously bash scripts were used to clone and build the toolchain and associated libraries; however, the repository is now using `git submodules` and makefiles to make building and developing easier.
+**Note:** previously bash scripts were used to clone and build the toolchain and associated libraries; however, the repository is now using `git submodules` and makefiles to make building and developing easier.  
+&nbsp;  
+The use of submodules makes building and development easier because you only need to clone the repositories once instead of cloning them on every invocation of the build script.  
+&nbsp;  
+In other words, using the build scripts, as they were, it would be many builds to many clones. However, cloning via submodules makes it one clone to many builds, and it also allows for local changes to be made without having those changes wiped-out when the script does a hard-reset on the repository.
 
 ## Requirements
 
