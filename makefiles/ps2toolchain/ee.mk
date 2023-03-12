@@ -48,7 +48,7 @@ EE_DEPS += .ps2toolchain-$(TARGET_PS2TOOLCHAIN_EE)-gcc-stage2
 			--quiet \
 			--prefix="$(PS2DEV)/$(TARGET_PS2TOOLCHAIN_EE)" \
 			--target="$$TARGET" \
-			--enable-stage1-languages="c" \
+			--enable-languages="c" \
 			--with-float=hard \
 			--without-headers \
 			--without-newlib \
