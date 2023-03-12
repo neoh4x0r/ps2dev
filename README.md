@@ -53,7 +53,7 @@ Ensure that you have enough permissions for managing PS2DEV location (which defa
     $ make [targets]
     ```
     
-    **Available make targets (*in build order*)**:  
+    **Available make targets (*listed in build order*)**:  
     &nbsp;  
     + **ps2toolchain** (equivalent to supplying these three targets, as well as their sub-targets)  
     &nbsp;  
