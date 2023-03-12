@@ -5,3 +5,4 @@ clean:
 
 dist-clean:
 	@$(call ResetCheckout)
+	@$(call PrepareExternals)
