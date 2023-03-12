@@ -59,11 +59,13 @@ Ensure that you have enough permissions for managing PS2DEV location (which defa
     
     **Available make targets (*listed in build order*)**:  
     &nbsp;  
-    + **ps2toolchain** (equivalent to supplying these three targets, as well as their sub-targets)  
+    &nbsp;&nbsp;&nbsp;&nbsp;**Each nested target is equivalent to executing its parent target.**
     &nbsp;  
-        + **ps2toolchain-dvp**:  
+    + **no argument or all** = builds all of these
+    + **ps2toolchain**:
+        + **ps2toolchain-dvp**:
             + **ps2toolchain-dvp-binutils**
-        + **ps2toolchain-iop**:  
+        + **ps2toolchain-iop**:
             + **ps2toolchain-iop-binutils**
             + **ps2toolchain-iop-gcc-stage1**
         + **ps2toolchain-ee**:  
@@ -73,7 +75,6 @@ Ensure that you have enough permissions for managing PS2DEV location (which defa
             + **ps2toolchain-ee-newlib-nano**
             + **ps2toolchain-ee-pthread**
             + **ps2toolchain-ee-gcc-stage2**
-    &nbsp;  
     + **ps2sdk**
     + **ps2sdk-ports**
     + **ps2-packer**
