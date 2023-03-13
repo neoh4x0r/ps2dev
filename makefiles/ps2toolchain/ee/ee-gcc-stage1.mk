@@ -5,8 +5,9 @@ $(EE_MAKE_TARGET_GCC_STAGE1):
 		rm -rf "build-$$TARGET-stage1"; \
 		mkdir "build-$$TARGET-stage1"; \
 		cd "build-$$TARGET-stage1"; \
+		$(call log_configure,$(EE_MAKE_TARGET_GCC_STAGE1),$$TARGET); \
 		../configure \
-			--quiet \
+			$(CONFIGURE_QUIET) \
 			--prefix="$(PS2DEV)/$(TARGET_PS2TOOLCHAIN_EE)" \
 			--target="$$TARGET" \
 			--enable-languages="c" \
@@ -17,6 +18,7 @@ $(EE_MAKE_TARGET_GCC_STAGE1):
 			--disable-multilib \
 			--disable-tls \
 			$(TARG_XTRA_OPTS) 2>&1 | tee -a $(LOGFILE); \
-		$(MAKE) --quiet -j "$(NUM_JOBS)" all 2>&1 | tee -a $(LOGFILE); \
-		$(MAKE) --quiet -j "$(NUM_JOBS)" install-strip 2>&1 | tee -a $(LOGFILE); \
+		$(call log_make,$(EE_MAKE_TARGET_GCC_STAGE1),$$TARGET); \
+		$(MAKE) $(MAKE_QUIET) -j "$(NUM_JOBS)" all 2>&1 | tee -a $(LOGFILE); \
+		$(MAKE) $(MAKE_QUIET) -j "$(NUM_JOBS)" install-strip 2>&1 | tee -a $(LOGFILE); \
 	done

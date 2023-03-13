@@ -5,8 +5,9 @@ $(EE_MAKE_TARGET_GCC_STAGE2):
 		rm -rf "build-$$TARGET-stage2"; \
 		mkdir "build-$$TARGET-stage2"; \
 		cd "build-$$TARGET-stage2"; \
+		$(call log_configure,$(EE_MAKE_TARGET_GCC_STAGE2),$$TARGET); \
 		../configure \
-			--quiet \
+			$(CONFIGURE_QUIET) \
 			--prefix="$(PS2DEV)/$(TARGET_PS2TOOLCHAIN_EE)" \
 			--target="$$TARGET" \
 			--enable-languages="c,c++" \
@@ -19,6 +20,7 @@ $(EE_MAKE_TARGET_GCC_STAGE2):
 			--enable-cxx-flags=-G0 \
 			--enable-threads=posix \
 			$(TARG_XTRA_OPTS) 2>&1 | tee -a $(LOGFILE); \
-		$(MAKE) --quiet -j "$(NUM_JOBS)" all 2>&1 | tee -a $(LOGFILE); \
-		$(MAKE) --quiet -j "$(NUM_JOBS)" install-strip 2>&1 | tee -a $(LOGFILE); \
+		$(call log_make,$(EE_MAKE_TARGET_GCC_STAGE2),$$TARGET); \
+		$(MAKE) $(MAKE_QUIET) -j "$(NUM_JOBS)" all 2>&1 | tee -a $(LOGFILE); \
+		$(MAKE) $(MAKE_QUIET) -j "$(NUM_JOBS)" install-strip 2>&1 | tee -a $(LOGFILE); \
 	done

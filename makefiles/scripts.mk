@@ -5,6 +5,14 @@ define stage
 	@cp -rfu "$(EXTERNALS_FOLDER)/$1/"* "$(BUILD_FOLDER)/$1/"
 endef
 
+define log_configure
+	echo "[CONFIGURING: $1 for $2]" 2>&1 | tee -a $(LOGFILE)
+endef
+
+define log_make
+	echo "[MAKING: $1 for $2]" 2>&1 | tee -a $(LOGFILE)
+endef
+
 define PrepareExternals
 	$(GIT) submodule sync
 	$(GIT) submodule update --init --recursive
