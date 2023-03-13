@@ -4,12 +4,12 @@ $(EE_MAKE_TARGET_NEWLIB_NANO):
 		cd "$(BUILD_FOLDER)/$(EE_DIR_TARGET_NEWLIB_NANO)"; \
 		rm -rf "build-$$TARGET"; \
 		mkdir "build-$$TARGET"; \
-		mkdir "build-tmp"; \
+		mkdir -p "$(EE_DIR_TARGET_NEWLIB_NANO_TMP)"; \
 		cd "build-$$TARGET"; \
 		$(call log_configure,$(EE_MAKE_TARGET_NEWLIB_NANO),$$TARGET); \
 		CFLAGS_FOR_TARGET="-DPREFER_SIZE_OVER_SPEED=1 -Os" ../configure \
 			$(BUILD_QUIET) \
-			--prefix="$(BUILD_FOLDER)/$(EE_DIR_TARGET_NEWLIB_NANO)/build-tmp" \
+			--prefix="$(BUILD_FOLDER)/$(EE_DIR_TARGET_NEWLIB_NANO_TMP)" \
 			--target="$$TARGET" \
 			--disable-newlib-supplied-syscalls \
 			--enable-newlib-reent-small \
@@ -26,7 +26,7 @@ $(EE_MAKE_TARGET_NEWLIB_NANO):
 		$(call log_make,$(EE_MAKE_TARGET_NEWLIB_NANO),$$TARGET); \
 		$(MAKE) $(BUILD_QUIET) -j "$(NUM_JOBS)" all 2>&1 | tee -a $(LOGFILE); \
 		$(MAKE) $(BUILD_QUIET) -j "$(NUM_JOBS)" install-strip 2>&1 | tee -a $(LOGFILE); \
-		mv "./build-tmp/$$TARGET/lib/libc.a" "$(PS2DEV)/$(TARGET_PS2TOOLCHAIN_EE)/$$TARGET/lib/libc_nano.a"; \
-		mv "./build-tmp/$$TARGET/lib/libg.a" "$(PS2DEV)/$(TARGET_PS2TOOLCHAIN_EE)/$$TARGET/lib/libg_nano.a"; \
-		mv "./build-tmp/$$TARGET/lib/libm.a" "$(PS2DEV)/$(TARGET_PS2TOOLCHAIN_EE)/$$TARGET/lib/libm_nano.a"; \
+		mv "$(BUILD_FOLDER)/$(EE_DIR_TARGET_NEWLIB_NANO_TMP)/$$TARGET/lib/libc.a" "$(PS2DEV)/$(TARGET_PS2TOOLCHAIN_EE)/$$TARGET/lib/libc_nano.a"; \
+		mv "$(BUILD_FOLDER)/$(EE_DIR_TARGET_NEWLIB_NANO_TMP)/$$TARGET/lib/libg.a" "$(PS2DEV)/$(TARGET_PS2TOOLCHAIN_EE)/$$TARGET/lib/libg_nano.a"; \
+		mv "$(BUILD_FOLDER)/$(EE_DIR_TARGET_NEWLIB_NANO_TMP)/$$TARGET/lib/libm.a" "$(PS2DEV)/$(TARGET_PS2TOOLCHAIN_EE)/$$TARGET/lib/libm_nano.a"; \
 	done
