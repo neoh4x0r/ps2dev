@@ -31,9 +31,15 @@
 [submodule "externals/ps2sdk-ports"]
 	path = externals/ps2sdk-ports
 	url = https://github.com/ps2dev/ps2sdk-ports
-[submodule "externals/ps2-packer"]
-	path = externals/ps2-packer
+[submodule "externals/extras/ps2link"]
+	path = externals/extras/ps2link
+	url = https://github.com/ps2dev/ps2link
+[submodule "externals/extras/mymc"]
+	path = externals/extras/mymc
+	url = https://github.com/ps2dev/mymc
+[submodule "externals/extras/ps2-packer"]
+	path = externals/extras/ps2-packer
 	url = https://github.com/ps2dev/ps2-packer
-[submodule "externals/ps2client"]
-	path = externals/ps2client
+[submodule "externals/extras/ps2client"]
+	path = externals/extras/ps2client
 	url = https://github.com/ps2dev/ps2client
