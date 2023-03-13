@@ -7,14 +7,14 @@ $(DVP_MAKE_TARGET_BINUTILS):
 		cd "build-$$TARGET"; \
 		$(call log_configure,$(DVP_MAKE_TARGET_BINUTILS),$$TARGET); \
 		CFLAGS="$(am_dvp_binutils_cflags)" ../configure \
-			$(CONFIGURE_QUIET) \
+			$(BUILD_QUIET) \
 			--prefix="$(PS2DEV)/$(TARGET_PS2TOOLCHAIN_DVP)" \
 			--target="$$TARGET" \
 			--disable-nls \
 			--disable-build-warnings \
 			$(TARG_XTRA_OPTS) 2>&1 | tee -a $(LOGFILE); \
 		$(call log_make,$(DVP_MAKE_TARGET_BINUTILS),$$TARGET); \
-		$(MAKE) $(MAKE_QUIET) -j $(NUM_JOBS) CFLAGS="$(CFLAGS) -D_FORTIFY_SOURCE=0 -O2 -Wno-implicit-function-declaration" LDFLAGS="$(LDFLAGS) -s"  2>&1 | tee -a $(LOGFILE) ; \
-		$(MAKE) $(MAKE_QUIET) -j $(NUM_JOBS) install 2>&1 | tee -a $(LOGFILE); \
+		$(MAKE) $(BUILD_QUIET) -j $(NUM_JOBS) CFLAGS="$(CFLAGS) -D_FORTIFY_SOURCE=0 -O2 -Wno-implicit-function-declaration" LDFLAGS="$(LDFLAGS) -s"  2>&1 | tee -a $(LOGFILE) ; \
+		$(MAKE) $(BUILD_QUIET) -j $(NUM_JOBS) install 2>&1 | tee -a $(LOGFILE); \
 	done
 	

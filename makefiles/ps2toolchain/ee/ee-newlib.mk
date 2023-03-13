@@ -7,10 +7,11 @@ $(EE_MAKE_TARGET_NEWLIB):
 		cd "build-$$TARGET"; \
 		$(call log_configure,$(EE_MAKE_TARGET_NEWLIB),$$TARGET); \
 		CFLAGS_FOR_TARGET="-O2" ../configure \
+			$(BUILD_QUIET) \
 			--prefix="$(PS2DEV)/$(TARGET_PS2TOOLCHAIN_EE)" \
 			--target="$$TARGET" \
 			$(TARG_XTRA_OPTS) 2>&1 | tee -a $(LOGFILE); \
 		$(call log_make,$(EE_MAKE_TARGET_NEWLIB),$$TARGET); \
-		$(MAKE) $(MAKE_QUIET) -j "$(NUM_JOBS)" all 2>&1 | tee -a $(LOGFILE); \
-		$(MAKE) $(MAKE_QUIET) -j "$(NUM_JOBS)" install-strip 2>&1 | tee -a $(LOGFILE); \
+		$(MAKE) $(BUILD_QUIET) -j "$(NUM_JOBS)" all 2>&1 | tee -a $(LOGFILE); \
+		$(MAKE) $(BUILD_QUIET) -j "$(NUM_JOBS)" install-strip 2>&1 | tee -a $(LOGFILE); \
 	done

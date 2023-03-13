@@ -10,8 +10,14 @@ LOGFILE=$(BUILD_FOLDER)/build.log
 
 GIT_BRANCH=$(shell $(GIT) rev-parse --abbrev-ref HEAD)
 
-# MAKE_QUIET: uncomment and set to --quiet to  have 'make' commands be quiet
-#MAKE_QUIET := --quiet
+# BUILD_QUIET: uncomment and set to --quiet so it is passed to 'make/configure' commands
+BUILD_QUIET := --quiet
 
-# CONFIGURE_QUIET: uncomment and set to --quiet to have 'configure' commands be quiet
-#CONFIGURE_QUIET := --quiet
+ifneq ($(VERBOSE),)
+# turn off BUILD_QUIET if VERBOSE is non-empty
+BUILD_QUIET=
+# export VERBOSE (and set to 1)
+export VERBOSE=1
+endif
+
+

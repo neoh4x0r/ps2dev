@@ -7,7 +7,7 @@ $(IOP_MAKE_TARGET_GCC_STAGE1):
 		cd "build-$$TARGET-stage1"; \
 		$(call log_configure,$(IOP_MAKE_TARGET_GCC_STAGE1),$$TARGET); \
 		../configure \
-			$(CONFIGURE_QUIET) \
+			$(BUILD_QUIET) \
 			--prefix="$(PS2DEV)/$(TARGET_PS2TOOLCHAIN_IOP)" \
 			--target="$$TARGET" \
 			--enable-languages="c" \
@@ -34,6 +34,6 @@ $(IOP_MAKE_TARGET_GCC_STAGE1):
 			--disable-tls \
 			$(TARG_XTRA_OPTS) 2>&1 | tee -a $(LOGFILE); \
 		$(call log_make,$(IOP_MAKE_TARGET_GCC_STAGE1),$$TARGET); \
-		$(MAKE) $(MAKE_QUIET) -j $(NUM_JOBS) all 2>&1 | tee -a $(LOGFILE); \
-		$(MAKE) $(MAKE_QUIET) -j $(NUM_JOBS) install-strip 2>&1 | tee -a $(LOGFILE); \
+		$(MAKE) $(BUILD_QUIET) -j $(NUM_JOBS) all 2>&1 | tee -a $(LOGFILE); \
+		$(MAKE) $(BUILD_QUIET) -j $(NUM_JOBS) install-strip 2>&1 | tee -a $(LOGFILE); \
 	done
