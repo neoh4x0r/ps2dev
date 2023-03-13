@@ -34,9 +34,6 @@
 [submodule "externals/extras/ps2link"]
 	path = externals/extras/ps2link
 	url = https://github.com/ps2dev/ps2link
-[submodule "externals/extras/mymc"]
-	path = externals/extras/mymc
-	url = https://github.com/ps2dev/mymc
 [submodule "externals/extras/ps2-packer"]
 	path = externals/extras/ps2-packer
 	url = https://github.com/ps2dev/ps2-packer

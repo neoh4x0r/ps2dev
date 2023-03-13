@@ -14,7 +14,7 @@ $(TARGET_PS2SDK_PORTS):
 	@$(call stage,"$(PS2SDK_PORTS_MAKE_PATH)")
 	@for unused in "none"; do \
 		cd "$(BUILD_FOLDER)/$(PS2SDK_PORTS_MAKE_PATH)"; \
-		$(call log_make,$(TARGET_PS2SDK_PORTS),""); \
+		$(call log_make,$(PS2SDK_PORTS_MAKE_PATH),""); \
 		$(MAKE) $(BUILD_QUIET) -j $(NUM_JOBS) 2>&1 | tee -a $(LOGFILE); \
 	done
 

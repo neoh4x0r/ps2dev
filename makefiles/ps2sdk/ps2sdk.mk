@@ -14,7 +14,7 @@ $(TARGET_PS2SDK):
 	@$(call stage,"$(PS2SDK_MAKE_PATH)")
 	@for unused in "none"; do \
 		cd "$(BUILD_FOLDER)/$(PS2SDK_MAKE_PATH)"; \
-		$(call log_make,$(TARGET_PS2SDK),""); \
+		$(call log_make,$(PS2SDK_MAKE_PATH),""); \
 		$(MAKE) $(BUILD_QUIET) -j $(SINGLE_JOB) 2>&1 | tee -a $(LOGFILE); \
 		$(MAKE) $(BUILD_QUIET) -j $(SINGLE_JOB) install 2>&1 | tee -a $(LOGFILE); \
 		ln -sf "$(PS2SDK)/ee/lib/libcglue.a" "$(PS2DEV)/ee/mips64r5900el-ps2-elf/lib/libcglue.a"; \
