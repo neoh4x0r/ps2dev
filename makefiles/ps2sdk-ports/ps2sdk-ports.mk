@@ -10,11 +10,12 @@ PS2SDK_PORTS_MAKE_PATH = $(TARGET_PS2SDK_PORTS)
 ## the loop a 'cd dir' will have no effect on the
 ## commands that follow it.
 ################
-
 $(TARGET_PS2SDK_PORTS):
 	@$(call stage,"$(PS2SDK_PORTS_MAKE_PATH)")
 	@for unused in "none"; do \
-		echo "$@ not implemented" 2>&1 | tee -a $(LOGFILE); \
+		cd "$(BUILD_FOLDER)/$(PS2SDK_PORTS_MAKE_PATH)"; \
+		$(call log_make,$(TARGET_PS2SDK_PORTS),""); \
+		$(MAKE) $(BUILD_QUIET) -j $(NUM_JOBS) 2>&1 | tee -a $(LOGFILE); \
 	done
 
 am_build_targets += $(TARGET_PS2SDK_PORTS)

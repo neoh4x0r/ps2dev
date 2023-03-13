@@ -1,16 +1,24 @@
 
 define stage
 	@mkdir -p "$(BUILD_FOLDER)/$1/"
-	@echo "[STAGING: $1]" 2>&1 | tee -a $(LOGFILE)
+	@echo "[STAGE: $1]" 2>&1 | tee -a $(LOGFILE)
 	@cp -rfu "$(EXTERNALS_FOLDER)/$1/"* "$(BUILD_FOLDER)/$1/"
 endef
 
 define log_configure
-	echo "[CONFIGURING: $1 for $2]" 2>&1 | tee -a $(LOGFILE)
+	if [ "$2" == "" ]; then \
+		echo "[SETUP: $1]" 2>&1 | tee -a $(LOGFILE); \
+	else \
+		echo "[SETUP: $1 for $2]" 2>&1 | tee -a $(LOGFILE); \
+	fi
 endef
 
 define log_make
-	echo "[MAKING: $1 for $2]" 2>&1 | tee -a $(LOGFILE)
+	if [ "$2" == "" ]; then \
+		echo "[BUILD: $1]" 2>&1 | tee -a $(LOGFILE); \
+	else \
+		echo "[BUILD: $1 for $2]" 2>&1 | tee -a $(LOGFILE); \
+	fi
 endef
 
 define PrepareExternals
