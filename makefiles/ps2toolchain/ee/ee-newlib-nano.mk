@@ -9,7 +9,7 @@ $(EE_MAKE_TARGET_NEWLIB_NANO):
 		$(call log_configure,$(EE_MAKE_TARGET_NEWLIB_NANO),$$TARGET); \
 		CFLAGS_FOR_TARGET="-DPREFER_SIZE_OVER_SPEED=1 -Os" ../configure \
 			$(BUILD_QUIET) \
-			--prefix="./build-tmp" \
+			--prefix="$(BUILD_FOLDER)/$(EE_DIR_TARGET_NEWLIB_NANO)/build-tmp" \
 			--target="$$TARGET" \
 			--disable-newlib-supplied-syscalls \
 			--enable-newlib-reent-small \
