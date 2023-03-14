@@ -71,6 +71,10 @@ Ensure that you have enough permissions for managing PS2DEV location (which defa
     $ make extras
     ```
     
+    For development purposes you can prefix `VERBOSE=1` to the make commands to show all of the compilation outoput.
+    ```bash
+    $ VERBOSE=1 make ps2toolchain
+    ```
 **Available make targets (*listed in build order*)**:  
 &nbsp;  
 &nbsp;&nbsp;&nbsp;&nbsp;**Each nested target is equivalent to executing its parent target.**
