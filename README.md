@@ -51,37 +51,53 @@ Ensure that you have enough permissions for managing PS2DEV location (which defa
     $ make dist_clean
     ```
 
-1.  Run make without an argument (to build everything) or supply a target to build.
+1.  Run make without an argument (to build everything) or supply a target to build.  
+    &nbsp;  
+    **Typical make steps**:
     ```bash
-    $ make
-    $ make [targets]
+    # do this once (and only as needed)
+    $ make dist_clean
+    
+    # clean the PS2DEV folder (again only as needed, see step 2)
+    $ make clean-ps2dev
+    
+    # clean the build folder
+    $ make clean
+    
+    # build the toolchain, ps2sdk (and ports)
+    $ make ps2toolchain ps2sdk ps2sdk-ports
+    
+    # build extras (if you want them)
+    $ make extras
     ```
     
-    **Available make targets (*listed in build order*)**:  
-    &nbsp;  
-    &nbsp;&nbsp;&nbsp;&nbsp;**Each nested target is equivalent to executing its parent target.**
-    &nbsp;  
-    + **no argument or all** = builds all of these
-    + **ps2toolchain**:
-        + **ps2toolchain-dvp**:
-            + **ps2toolchain-dvp-binutils**
-        + **ps2toolchain-iop**:
-            + **ps2toolchain-iop-binutils**
-            + **ps2toolchain-iop-gcc-stage1**
-        + **ps2toolchain-ee**:  
-            + **ps2toolchain-ee-binutils**
-            + **ps2toolchain-ee-gcc-stage1**
-            + **ps2toolchain-ee-newlib**
-            + **ps2toolchain-ee-newlib-nano**
-            + **ps2toolchain-ee-pthread**
-            + **ps2toolchain-ee-gcc-stage2**
-    + **gskit** (see [ps2dev/pull/66](https://github.com/ps2dev/ps2dev/pull/66)  -- I cannot find gskit in **ps2sdk-ports**, so for completeness it is being included here)
-    + **ps2sdk**
-    + **ps2sdk-ports**
-    + **extras**:
-        + **ps2-packer**
-        + **ps2client**
-        + **ps2link**
+**Available make targets (*listed in build order*)**:  
+&nbsp;  
+&nbsp;&nbsp;&nbsp;&nbsp;**Each nested target is equivalent to executing its parent target.**
+&nbsp;
++ **dist_clean** = checkout/reset/and sync submodules
++ **clean** = clean build folder
++ **clean-ps2dev** = clean $(PS2DEV) folder
++ **no argument or all** = builds all of the below targets
++ **ps2toolchain**:
+    + **ps2toolchain-dvp**:
+        + **ps2toolchain-dvp-binutils**
+    + **ps2toolchain-iop**:
+        + **ps2toolchain-iop-binutils**
+        + **ps2toolchain-iop-gcc-stage1**
+    + **ps2toolchain-ee**:  
+        + **ps2toolchain-ee-binutils**
+        + **ps2toolchain-ee-gcc-stage1**
+        + **ps2toolchain-ee-newlib**
+        + **ps2toolchain-ee-newlib-nano**
+        + **ps2toolchain-ee-pthread**
+        + **ps2toolchain-ee-gcc-stage2**
++ **ps2sdk**
++ **ps2sdk-ports**
++ **extras**:
+    + **ps2-packer**
+    + **ps2client**
+    + **ps2link**
 
 The ps2toolchain and extras target, also have sub-targets, and depending on the configuration set in ***makefiles/ps2toolchain/includes.mk*** and ***makefiles/extras/includes.mk***, the following variables will control if sub-targets are shown (to hide targets they should be set to '.'):
 
