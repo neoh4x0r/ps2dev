@@ -7,6 +7,7 @@ INSTALL_PREFIX=$(HOME)
 
 export PS2DEV := $(INSTALL_PREFIX)/ps2dev
 export PS2SDK := $(PS2DEV)/ps2sdk
+export GSKIT := $(PS2DEV)/gsKit
 
 PS2DEV_PATH := $(PS2DEV_PATH)$(PS2DEV)/bin:
 PS2DEV_PATH := $(PS2DEV_PATH)$(PS2DEV)/ee/bin:

@@ -75,6 +75,7 @@ Ensure that you have enough permissions for managing PS2DEV location (which defa
             + **ps2toolchain-ee-newlib-nano**
             + **ps2toolchain-ee-pthread**
             + **ps2toolchain-ee-gcc-stage2**
+    + **gskit** (see [ps2dev/pull/66](https://github.com/ps2dev/ps2dev/pull/66)  -- I cannot find gskit in **ps2sdk-ports**, so for completeness it is being included here)
     + **ps2sdk**
     + **ps2sdk-ports**
     + **extras**:

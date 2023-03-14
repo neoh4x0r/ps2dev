@@ -40,3 +40,6 @@
 [submodule "externals/extras/ps2client"]
 	path = externals/extras/ps2client
 	url = https://github.com/ps2dev/ps2client
+[submodule "externals/gskit"]
+	path = externals/gskit
+	url = https://github.com/ps2dev/gskit
