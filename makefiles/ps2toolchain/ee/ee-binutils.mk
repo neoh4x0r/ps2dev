@@ -15,6 +15,6 @@ $(EE_MAKE_TARGET_BINUTILS):
 			--disable-nls \
 			$(TARG_XTRA_OPTS) 2>&1 | tee -a $(LOGFILE); \
 		$(call log_make,$(EE_MAKE_TARGET_BINUTILS),$$TARGET); \
-		$(MAKE) $(BUILD_QUIET) -j "$(NUM_JOBS)" 2>&1 | tee -a $(LOGFILE); \
-		$(MAKE) $(BUILD_QUIET) -j "$(NUM_JOBS)" install-strip 2>&1 | tee -a $(LOGFILE); \
+		$(MAKE) $(BUILD_QUIET) -j "$(MAX_JOBS)" 2>&1 | tee -a $(LOGFILE); \
+		$(MAKE) $(BUILD_QUIET) -j "$(MAX_JOBS)" install-strip 2>&1 | tee -a $(LOGFILE); \
 	done

@@ -21,6 +21,6 @@ $(EE_MAKE_TARGET_GCC_STAGE2):
 			--enable-threads=posix \
 			$(TARG_XTRA_OPTS) 2>&1 | tee -a $(LOGFILE); \
 		$(call log_make,$(EE_MAKE_TARGET_GCC_STAGE2),$$TARGET); \
-		$(MAKE) $(BUILD_QUIET) -j "$(NUM_JOBS)" all 2>&1 | tee -a $(LOGFILE); \
-		$(MAKE) $(BUILD_QUIET) -j "$(NUM_JOBS)" install-strip 2>&1 | tee -a $(LOGFILE); \
+		$(MAKE) $(BUILD_QUIET) -j "$(MAX_JOBS)" all 2>&1 | tee -a $(LOGFILE); \
+		$(MAKE) $(BUILD_QUIET) -j "$(MAX_JOBS)" install-strip 2>&1 | tee -a $(LOGFILE); \
 	done

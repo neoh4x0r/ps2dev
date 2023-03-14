@@ -1,8 +1,10 @@
 
-# NUM_JOBS: number of parallel make jobs
-# -- set this to 1 for debugging
-NUM_JOBS=$(shell nproc)
+# SINGLE_JOB: run only 1 make job
 SINGLE_JOB=1
+
+# MAX_JOBS: set the max number of of make jobs to the number of cpu-cores
+MAX_JOBS=$(shell nproc)
+
 
 # get substring of os version (grad first 10 characters)
 OSVER=$(shell uname | cut -c 1-10)

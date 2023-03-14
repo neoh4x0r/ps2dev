@@ -34,6 +34,6 @@ $(IOP_MAKE_TARGET_GCC_STAGE1):
 			--disable-tls \
 			$(TARG_XTRA_OPTS) 2>&1 | tee -a $(LOGFILE); \
 		$(call log_make,$(IOP_MAKE_TARGET_GCC_STAGE1),$$TARGET); \
-		$(MAKE) $(BUILD_QUIET) -j $(NUM_JOBS) all 2>&1 | tee -a $(LOGFILE); \
-		$(MAKE) $(BUILD_QUIET) -j $(NUM_JOBS) install-strip 2>&1 | tee -a $(LOGFILE); \
+		$(MAKE) $(BUILD_QUIET) -j $(MAX_JOBS) all 2>&1 | tee -a $(LOGFILE); \
+		$(MAKE) $(BUILD_QUIET) -j $(MAX_JOBS) install-strip 2>&1 | tee -a $(LOGFILE); \
 	done

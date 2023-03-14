@@ -2,7 +2,7 @@ EXTRAS=extras
 
 # EXTRAS_HIDE_TARGETS: set to '.' to hide the compiler targets
 # For example, to hide ps2toolchain-dvp
-EXTRAS_HIDE_TARGETS =
+EXTRAS_HIDE_TARGETS = .
 
 include makefiles/$(EXTRAS)/ps2-packer/includes.mk
 include makefiles/$(EXTRAS)/ps2client/includes.mk

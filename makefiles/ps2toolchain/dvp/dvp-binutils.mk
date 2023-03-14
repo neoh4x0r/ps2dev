@@ -14,7 +14,7 @@ $(DVP_MAKE_TARGET_BINUTILS):
 			--disable-build-warnings \
 			$(TARG_XTRA_OPTS) 2>&1 | tee -a $(LOGFILE); \
 		$(call log_make,$(DVP_MAKE_TARGET_BINUTILS),$$TARGET); \
-		$(MAKE) $(BUILD_QUIET) -j $(NUM_JOBS) CFLAGS="$(CFLAGS) -D_FORTIFY_SOURCE=0 -O2 -Wno-implicit-function-declaration" LDFLAGS="$(LDFLAGS) -s"  2>&1 | tee -a $(LOGFILE) ; \
-		$(MAKE) $(BUILD_QUIET) -j $(NUM_JOBS) install 2>&1 | tee -a $(LOGFILE); \
+		$(MAKE) $(BUILD_QUIET) -j $(MAX_JOBS) CFLAGS="$(CFLAGS) -D_FORTIFY_SOURCE=0 -O2 -Wno-implicit-function-declaration" LDFLAGS="$(LDFLAGS) -s"  2>&1 | tee -a $(LOGFILE) ; \
+		$(MAKE) $(BUILD_QUIET) -j $(MAX_JOBS) install 2>&1 | tee -a $(LOGFILE); \
 	done
 	

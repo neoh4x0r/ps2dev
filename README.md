@@ -77,11 +77,17 @@ Ensure that you have enough permissions for managing PS2DEV location (which defa
             + **ps2toolchain-ee-gcc-stage2**
     + **ps2sdk**
     + **ps2sdk-ports**
-    + **ps2-packer**
-    + **ps2client**  
+    + **extras**:
+        + **ps2-packer**
+        + **ps2client**
+        + **ps2link**
 
-The ps2toolchain targets, also have sub-targets, and depending on the configuration set in ***makefiles/ps2toolchain/includes.mk***, the variables **PS2TOOLCHAIN_HIDE_COMPILER_TARGETS** and **PS2TOOLCHAIN_HIDE_SUBCOMPILER_TARGETS** will control whether or not each compiler target is visible, including if their sub-targets are also visible.  
-&nbsp;  
+The ps2toolchain and extras target, also have sub-targets, and depending on the configuration set in ***makefiles/ps2toolchain/includes.mk*** and ***makefiles/extras/includes.mk***, the following variables will control if sub-targets are shown (to hide targets they should be set to '.'):
+
++ **PS2TOOLCHAIN_HIDE_COMPILER_TARGETS**
++ **PS2TOOLCHAIN_HIDE_SUBCOMPILER_TARGETS**
++ **EXTRAS_HIDE_TARGETS**
+
 **Note:** the **INSTALL_PREFIX** variable in **makefiles/user_paths.mk** can be altered to setup a custom installation path -- by default the prefix is $HOME (the user's home directory), but it could be changed to **/usr/local**, or etc; however, if it is to be installed to a system path it would require running make as root. Also be sure that these paths match what you setup in step 4.
 
 ## Docker generation

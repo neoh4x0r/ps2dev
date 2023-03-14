@@ -24,8 +24,8 @@ $(EE_MAKE_TARGET_NEWLIB_NANO):
 			--disable-nls \
 			$(TARG_XTRA_OPTS) 2>&1 | tee -a $(LOGFILE); \
 		$(call log_make,$(EE_MAKE_TARGET_NEWLIB_NANO),$$TARGET); \
-		$(MAKE) $(BUILD_QUIET) -j "$(NUM_JOBS)" all 2>&1 | tee -a $(LOGFILE); \
-		$(MAKE) $(BUILD_QUIET) -j "$(NUM_JOBS)" install-strip 2>&1 | tee -a $(LOGFILE); \
+		$(MAKE) $(BUILD_QUIET) -j "$(MAX_JOBS)" all 2>&1 | tee -a $(LOGFILE); \
+		$(MAKE) $(BUILD_QUIET) -j "$(MAX_JOBS)" install-strip 2>&1 | tee -a $(LOGFILE); \
 		mv "$(BUILD_FOLDER)/$(EE_DIR_TARGET_NEWLIB_NANO_TMP)/$$TARGET/lib/libc.a" "$(PS2DEV)/$(TARGET_PS2TOOLCHAIN_EE)/$$TARGET/lib/libc_nano.a"; \
 		mv "$(BUILD_FOLDER)/$(EE_DIR_TARGET_NEWLIB_NANO_TMP)/$$TARGET/lib/libg.a" "$(PS2DEV)/$(TARGET_PS2TOOLCHAIN_EE)/$$TARGET/lib/libg_nano.a"; \
 		mv "$(BUILD_FOLDER)/$(EE_DIR_TARGET_NEWLIB_NANO_TMP)/$$TARGET/lib/libm.a" "$(PS2DEV)/$(TARGET_PS2TOOLCHAIN_EE)/$$TARGET/lib/libm_nano.a"; \
