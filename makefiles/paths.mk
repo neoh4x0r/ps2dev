@@ -7,4 +7,8 @@ BUILD_FOLDER=$(ROOT_DIR)/build
 # EXTERNALS_FOLDER: path to the externals directory
 EXTERNALS_FOLDER=$(ROOT_DIR)/externals
 
-DEPEND_SCRIPT_PATH=$(ROOT_DIR)/depends
+# SCRIPTS_PATH: path to the script directory
+SCRIPTS_PATH=$(ROOT_DIR)/scripts
+
+# DEPENDS_PATH: path to depend scripts
+DEPENDS_PATH=$(SCRIPTS_PATH)/depends
